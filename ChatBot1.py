@@ -1,7 +1,10 @@
 # chatgpt inside a infinite loop
+import os
 import openai
+from dotenv import load_dotenv, dotenv_values
 
-botKey = ""
+load_dotenv()
+botKey = os.getenv("BOT_KEY")
 openai.api_key = botKey
 
 messages = []
@@ -17,7 +20,7 @@ while input != "quit":
         break
     messages.append({"role":"user", "content":message})
     response = openai.ChatCompletion.create(
-        model = "gpt-3.5-turbo",
+        model="gpt-3.5-turbo",
         messages=messages
     )
     reply = response["choices"][0]["message"]["content"]

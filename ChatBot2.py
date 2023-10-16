@@ -1,8 +1,11 @@
 # chatgpt with gradio
+import os
 import openai
 import gradio
+from dotenv import load_dotenv, dotenv_values
 
-botKey = ""
+load_dotenv()
+botKey = os.getenv("BOT_KEY")
 openai.api_key = botKey
 
 # config the bot
