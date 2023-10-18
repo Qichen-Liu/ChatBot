@@ -19,7 +19,7 @@ def CustomChatGPT(user_input):
         messages=messages
     )
     ChatGPT_reply = response["choices"][0]["message"]["content"]
-    #messages.append({"role": "assistant", "content": ChatGPT_reply})
+    # messages.append({"role": "assistant", "content": ChatGPT_reply})
     return ChatGPT_reply
 
 # use gradio to create a simple UI
