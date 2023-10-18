@@ -2,7 +2,7 @@
 import os
 import openai
 import telegram
-from dotenv import load_dotenv, dotenv_values
+from dotenv import load_dotenv
 from telegram.ext import Updater, MessageHandler, Filters
 
 # obtain api keys
