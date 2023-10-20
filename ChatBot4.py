@@ -1,4 +1,4 @@
-# telegram bot with voice chat
+# telegram bot with voice input
 import os
 import io
 import openai
@@ -7,7 +7,6 @@ import tempfile
 from telegram.ext import Updater, Filters, MessageHandler
 from dotenv import load_dotenv
 from moviepy.editor import AudioFileClip
-
 
 load_dotenv()
 # obtain api keys
@@ -18,8 +17,9 @@ TELEGRAM_API_TOKEN = telegramKey
 
 # define messages to save message
 messages = [{"role": "system",
-             "content":"You are SuperTelegramGPT, a helpful telegram bot who is always concise and polite in its "
-                       "answers."}]
+             "content": "You are SuperTelegramGPT, a helpful telegram bot who is always concise and polite in its "
+                        "answers."}]
+
 
 def text_message(update, context):
     messages.append({"role": "user", "content": update.message.text})
@@ -30,6 +30,7 @@ def text_message(update, context):
     ChatGPT_reply = response["choices"][0]["message"]["content"]
     update.message.reply_text(text=f"*[Bot]:* {ChatGPT_reply}", parse_mode=telegram.ParseMode.MARKDOWN)
     messages.append({"role": "assistant", "content": ChatGPT_reply})
+
 
 def voice_message(update, context):
     update.message.reply_text("I've received a voice message! Please give me a second to respond :)")
