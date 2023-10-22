@@ -1,0 +1,35 @@
+name: Python CI/CD
+
+on:
+  push:
+    branches:
+      - main  # the branch that triggers the workflow on
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9  # Replace with the Python version you need
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+      working-directory: ./  # Change to your project's directory
+
+#    - name: Run tests
+#      run: |
+#        python -m unittest discover -s tests -p 'test_*.py'
+#      working-directory: ./  # Change to your project's directory
+#
+#    - name: Deploy
+#      if: success()
+#      run: |
+#        # Add deployment steps here
+#      working-directory: ./  # Change to your project's directory
