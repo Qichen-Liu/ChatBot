@@ -1,6 +1,6 @@
 openai
 gradio
-pyton-dotenv==1.0.0
+python-dotenv==1.0.0
 python-telegram-bot==13.0
 moviepy==1.0.3
 gTTS==2.3.1
